@@ -15,10 +15,10 @@ export const itemsReducer = (state, action) =>
             return{
                 items: [action.payload, ...state.items]
             }
-        
+        //Careful not to leave this in an array, or else it will have trouble rendering
         case 'DELETE_ITEM':
             return{
-                items: [state.items.filter((i)=> i._id !== action.payload._id)]
+                items: state.items.filter((i) => i._id !== action.payload._id)
             }
         
         default:
