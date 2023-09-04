@@ -1,7 +1,8 @@
 import { useState } from "react"
-
+import { useItemContext } from '../hooks/useItemsContext'
 const NewItem = () =>
 {
+    const { dispatch } = useItemContext()
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
     const [category, setCategory] = useState('')
@@ -31,6 +32,7 @@ const NewItem = () =>
                 setDescription('')
                 setError(null)
                 console.log('New Item Added', json)
+                dispatch({type:'CREATE_ITEM', payload: json})
             }
     };
 
