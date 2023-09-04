@@ -29,7 +29,7 @@ export const ItemContextProvider = ({children}) =>
         });
 
     return(
-        <ItemContext.Provider value={{state, dispatch}}>
+        <ItemContext.Provider value={{...state, dispatch}}>
             {children}
         </ItemContext.Provider>
     )

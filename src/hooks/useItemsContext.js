@@ -9,6 +9,5 @@ export const useItemContext = () =>
             throw Error('useItemContext must be used inside a ItemContextProvider')
         }
     
-
     return context
 }

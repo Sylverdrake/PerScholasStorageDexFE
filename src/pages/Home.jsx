@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect} from 'react'
+import { useItemContext } from '../hooks/useItemsContext'
 //Components
 import ItemInfo from '../components/ItemInfo'
 import NewItem from '../components/NewItem'
 
 const Home = () =>
 {
-    const [items, setItems] = useState(null)
+    const {items, dispatch} = useItemContext()
     useEffect(()=>
     {
         const fetchItems = async () =>
@@ -15,7 +15,7 @@ const Home = () =>
             const json = await response.json()
                 if (response.ok)
                 {
-                    setItems(json)
+                    dispatch({type: 'SET_ITEMS', payload: json})
                 }
         }
         fetchItems()
