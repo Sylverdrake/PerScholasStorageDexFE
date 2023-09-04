@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+//Components
+import ItemInfo from '../components/ItemInfo'
+
 const Home = () =>
 {
     const [items, setItems] = useState(null)
@@ -7,7 +10,7 @@ const Home = () =>
     {
         const fetchItems = async () =>
         {
-            const response = await fetch('http://localhost:3000/api/items/')
+            const response = await fetch('/api/items/')
             const json = await response.json()
                 if (response.ok)
                 {
@@ -21,7 +24,7 @@ const Home = () =>
         <div className="home">
             <div className="items">
                 {items && items.map((item)=>(
-                    <p key={item._id}>{item.name}</p>
+                    <ItemInfo key={item._id} item={item}/>
                 ))}
             </div>
         </div>
