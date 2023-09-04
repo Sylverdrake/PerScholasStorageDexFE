@@ -8,6 +8,7 @@ const NewItem = () =>
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) =>
     {
@@ -23,6 +24,7 @@ const NewItem = () =>
             if(!response.ok)
             {
                 setError(json.error)
+                setEmptyFields(json.emptyFields)
             }
             if(response.ok)
             {
@@ -31,6 +33,7 @@ const NewItem = () =>
                 setCategory('')
                 setDescription('')
                 setError(null)
+                setEmptyFields([])
                 console.log('New Item Added', json)
                 dispatch({type:'CREATE_ITEM', payload: json})
             }
@@ -40,16 +43,36 @@ const NewItem = () =>
         <form className="newItem" onSubmit={handleSubmit}>
             <h3>Add A New Item</h3>
             <label>Item Name:</label>
-            <input type="text" onChange={(e) => setName(e.target.value)} value={name}/>
+            <input 
+                type="text" 
+                onChange={(e) => setName(e.target.value)} 
+                value={name}
+                className={emptyFields.includes('name') ? 'error' : ''}
+            />
 
             <label>Item Location:</label>
-            <input type="text" onChange={(e) => setLocation(e.target.value)} value={location}/>
+            <input 
+                type="text" 
+                onChange={(e) => setLocation(e.target.value)} 
+                value={location}
+                className={emptyFields.includes('location') ? 'error' : ''}
+            />
 
             <label>Item Category:</label>
-            <input type="text" onChange={(e) => setCategory(e.target.value)} value={category}/>
+            <input 
+                type="text" 
+                onChange={(e) => setCategory(e.target.value)} 
+                value={category}
+                className={emptyFields.includes('category') ? 'error' : ''}
+            />
 
             <label>Item Description:</label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
+            <input
+                type="text" 
+                onChange={(e) => setDescription(e.target.value)} 
+                value={description}
+                className={emptyFields.includes('description') ? 'error' : ''}
+            />
         <button>Add Item</button>
         {error && <div className="error">{error}</div>}
         </form>
