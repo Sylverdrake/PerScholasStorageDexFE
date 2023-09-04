@@ -19,7 +19,7 @@ const Home = () =>
                 }
         }
         fetchItems()
-    }, []);
+    }, [dispatch]);
 
     return(
         <div className="home">
