@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 //Components
 import ItemInfo from '../components/ItemInfo'
+import NewItem from '../components/NewItem'
 
 const Home = () =>
 {
@@ -27,6 +28,7 @@ const Home = () =>
                     <ItemInfo key={item._id} item={item}/>
                 ))}
             </div>
+            <NewItem/>
         </div>
     )
 }
