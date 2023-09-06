@@ -1,6 +1,9 @@
 import {Link} from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
+
+//logo
+import logo from '../assets/storagedexicon.png';
 const Navbar = () =>
 {
     const {logout} = useLogout();
@@ -14,7 +17,7 @@ const Navbar = () =>
     <header>
         <div className="container">
             <Link to="/">
-                <h1>StorageDex</h1>
+                <div><img className='logo' src={logo} alt='StorageDex'/></div>
             </Link>
             <nav>
                 {user && ( 
@@ -26,8 +29,9 @@ const Navbar = () =>
 
                 {!user && (
                 <div>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/signup'>Sign Up</Link>
+                    <Link to='/login'><strong>Log In</strong></Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;|
+                    <Link to='/signup'><strong>Sign Up</strong></Link>
                 </div>
                 )}
             </nav>

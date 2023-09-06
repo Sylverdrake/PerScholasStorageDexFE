@@ -16,7 +16,7 @@ const SignUp = () =>
 
     return(
         <form className="signup" onSubmit={handleSubmit}>
-        <h3>Sign Up!</h3>
+        <h3>Sign Up</h3>
             <label>Username:</label>
             <input
                 type="username"
@@ -38,7 +38,7 @@ const SignUp = () =>
                 value={password}
             />
 
-        <button disabled={isLoading}>Sign Up!</button>
+        <button disabled={isLoading}>Sign Up</button>
         {error && <div className="error">{error}</div>}
         </form>
     )

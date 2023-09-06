@@ -44,12 +44,27 @@ const ItemInfo = ({item}) =>
 
     return(
         <div className="itemInfo">
-            <h3 className="itemName">{item.name}</h3>
-            <h4 className="itemLocation">{item.location}</h4>
-            <h5 className="category">{item.category}</h5>
-            <p className="description">{item.description}</p>
-            <p>{formatDistanceToNow(new Date(item.createdAt), {addSuffix: true})}</p>
-            <span className="material-symbols-outlined" onClick={handleDelete}>Delete</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Location</th>
+                        <th scope='col'>Category</th>
+                        <th scope='col'>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{item.name}</td>
+                        <td>{item.location}</td>
+                        <td>{item.category}</td>
+                        <td>{formatDistanceToNow(new Date(item.createdAt), {addSuffix: true})}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span id='delete' className="material-symbols-outlined" onClick={handleDelete}>Delete</span>
+            <br/>
+            <span id='view' className="material-symbols-outlined" >Description</span>
             {/* <span onClick={handleUpdate}>Edit</span> */}
         </div>
     )

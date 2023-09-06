@@ -10,6 +10,10 @@ export const itemsReducer = (state, action) =>
             return{
                 items: action.payload
             }
+        case 'SET_ITEM':
+            return{
+                
+            }
 
         case 'CREATE_ITEM':
             return{
