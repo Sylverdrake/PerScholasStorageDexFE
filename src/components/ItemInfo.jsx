@@ -1,16 +1,26 @@
-import { useItemContext } from "../hooks/useItemsContext"
-
+import { useItemContext } from "../hooks/useItemsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 //Date FNS
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const ItemInfo = ({item}) =>
 {
-    const {dispatch} = useItemContext()
+    const { dispatch } = useItemContext();
+    const { user } = useAuthContext();
     const handleDelete = async () =>
     {
+        if(!user)
+        {
+            return
+        }
+
         const response = await fetch('/api/items/' + item._id,
         {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers:
+            {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
             if(response.ok)

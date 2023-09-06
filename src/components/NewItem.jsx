@@ -1,24 +1,36 @@
 import { useState } from "react"
-import { useItemContext } from '../hooks/useItemsContext'
+import { useItemContext } from '../hooks/useItemsContext';
+import { useAuthContext } from "../hooks/useAuthContext";
 const NewItem = () =>
 {
-    const { dispatch } = useItemContext()
-    const [name, setName] = useState('')
-    const [location, setLocation] = useState('')
-    const [category, setCategory] = useState('')
-    const [description, setDescription] = useState('')
-    const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
-
+    const { dispatch } = useItemContext();
+    const {user} = useAuthContext();
+    
+    const [name, setName] = useState('');
+    const [location, setLocation] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
+    const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
+;
     const handleSubmit = async (e) =>
     {
         e.preventDefault()
+            if(!user)
+            {
+                setError('You must be logged in.')
+                return
+            }
         const item = {name, location, category, description}
         const response = await fetch('/api/items', 
         {
             method: 'POST',
             body: JSON.stringify(item),
-            headers: {'Content-Type': 'application/json'}
+            headers: 
+            {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
             if(!response.ok)
