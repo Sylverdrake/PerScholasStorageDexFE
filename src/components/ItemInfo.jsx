@@ -1,6 +1,8 @@
 import { useItemContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+import {Link} from 'react-router-dom';
+
 //Date FNS
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const ItemInfo = ({item}) =>
@@ -29,16 +31,20 @@ const ItemInfo = ({item}) =>
             }
     } 
 
-    // const handleUpdate = async () =>
+    // const handleView = async () =>
     // {
     //     const response = await fetch('/api/items/' + item._id,
     //     {
-    //         method: 'PATCH'
+    //         method: 'GET',
+    //         headers:
+    //         {
+    //             'Authorization': `Bearer ${user.token}`
+    //         }
     //     })
     //     const json = await response.json()
     //         if(response.ok)
     //         {
-    //             dispatch({type: 'UPDATE_ITEM', payload: json})
+    //             dispatch({type: 'SET_ITEM', payload: json})
     //         }
     // }
 
@@ -64,7 +70,9 @@ const ItemInfo = ({item}) =>
             </table>
             <span id='delete' className="material-symbols-outlined" onClick={handleDelete}>Delete</span>
             <br/>
-            <span id='view' className="material-symbols-outlined" >Description</span>
+            <Link to={`/${item._id}`} >
+            <span id='view' className="material-symbols-outlined">Description</span>
+            </Link>
             {/* <span onClick={handleUpdate}>Edit</span> */}
         </div>
     )

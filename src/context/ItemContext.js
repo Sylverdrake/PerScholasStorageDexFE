@@ -12,7 +12,7 @@ export const itemsReducer = (state, action) =>
             }
         case 'SET_ITEM':
             return{
-                
+                items: action.payload
             }
 
         case 'CREATE_ITEM':
