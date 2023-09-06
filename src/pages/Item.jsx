@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import { useAuthContext } from '../hooks/useAuthContext';
+
+//External Imports
 import axios from "axios";
 
+//Components
 import EditItem from "../components/EditItem";
 const Item = () =>
 {
@@ -28,14 +30,19 @@ const Item = () =>
         getItem()
     }, []);
     return(
-        <div>
-            <button onClick={()=>{setEdit(!edit)}}>{edit ? 'Edit' : 'View Data'}</button>
+        <div className="showContainer">
+            <button className='showBtn' onClick={()=>{setEdit(!edit)}}>{edit ? 'Edit' : 'View Data'}</button>
             {/* put ternary in button = if edit is true, view data, if edit is false, view edit form */}
-            {edit ? <h1>{item.name}</h1> 
-            
-            
-            
-            
+            {edit ? 
+            <div className='showItem'>
+                <div className="siHeader">
+                    <h1 id='si'>Name: {item.name} </h1>
+                    <h1 id='si'>Location: {item.location}</h1>
+                    <h1 id='si'>Category: {item.category}</h1>
+                </div>
+                <hr/>
+                <div><h1 id='si'>Description:</h1><p id='siDesc'>{item.description}</p></div>
+            </div>
             
             : <EditItem/>}
         </div>

@@ -22,7 +22,7 @@ function App() {
       <div className='pages'>
         <Routes>
           <Route path='/' element={user ? <Home/> : <Navigate to="/login"/>}/>
-          <Route path='/:id' element={<Item/>}/>
+          <Route path='/:id' element={user ? <Item/> : <Navigate to='/login'/>}/>
 
           <Route path='/login' element={!user ? <Login/> : <Navigate to='/'/>}/>
           <Route path='/signup' element={!user ? <SignUp/> : <Navigate to='/'/>}/>
