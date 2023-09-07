@@ -12,7 +12,7 @@ const NewItem = () =>
     const [description, setDescription] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
-;
+
     const handleSubmit = async (e) =>
     {
         e.preventDefault()
