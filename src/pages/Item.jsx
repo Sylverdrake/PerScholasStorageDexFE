@@ -44,7 +44,7 @@ const Item = () =>
                 <div><h1 id='si'>Description:</h1><p id='siDesc'>{item.description}</p></div>
             </div>
             
-            : <EditItem/>}
+            : <EditItem item={item}/>}
         </div>
 
         //Show Name, Location, Category, Timestamp & Description

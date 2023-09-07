@@ -1,7 +1,10 @@
-const EditItem = () =>
+const EditItem = (props) =>
 {
+
     return(
-        "placeholder test edit"
+        <div>{props.item.name}</div>
+        
     )
 }
+
 export default EditItem
