@@ -1,4 +1,5 @@
-#Introduction
+# Introduction
+
 While frustrating at first, I ended up having a lot of fun making this project and watching it come together, despite all of the other things happening in my life at the time. But if this was developed during an actual job, and all these things were just other job responsibilities, I would say that things turn out quite well since everything works as intended and as requested. 
 
 
@@ -9,8 +10,10 @@ I would say the biggest challenge of this whole project was learning the MERN st
 The biggest challenge with this project was getting through it. Full Stack development is hefty work. It's one thing to make one or the other, but making both work in harmony with each other changes the game completely. I found that my biggest takeaways from this project was that you need to be mindful of how data is being passed around, and WHY it is being passed certain ways.
 
 Also Thunder Client (or it's equivalent) made things so much better. Using it to test all back end processes made getting it sorted out vastly easier.
-=========================================================
-#Technologies Used
+
+
+---
+# Technologies Used
     Backend dependencies:
         "bcrypt": "^5.1.1",
         "dotenv": "^16.3.1",
@@ -26,15 +29,18 @@ Also Thunder Client (or it's equivalent) made things so much better. Using it to
         "react-router-dom": "^6.15.0",
         "react-scripts": "5.0.1",
         "web-vitals": "^2.1.4"
-=========================================================
-#Trello Board & Diagrams
+
+# Trello Board & Diagrams
 https://trello.com/invite/b/bxelf2Y5/ATTI82799cdf7e1a3f8295bc93c7e3c1472e55ADF05C/mern-project
-https://drive.google.com/drive/u/0/folders/1cd55lKbkj-Uhp_l1m9b4vYaNQDMgunX_ - Wireframes
-=========================================================
-#Unsolved Problems
+
+[https://drive.google.com/drive/u/0/folders/1cd55lKbkj-Uhp_l1m9b4vYaNQDMgunX_](https://drive.google.com/drive/folders/1cd55lKbkj-Uhp_l1m9b4vYaNQDMgunX_?usp=sharing)
+
+
+# Unsolved Problems
 EditForm does not refresh dynamically akin to the New Form - probably need to use useEffect hook
-=========================================================
-#The Future
+
+
+# The Future
 There was a lot I wanted to do with this project, but only so much I could do given the timespan and other "job responsibilities" if we want to frame it that way. Some things in particular I really wanted to add that was included on the original wireframes were:
 
 Adding separate objects for locations and categories so they could be searched for and filtered through.
