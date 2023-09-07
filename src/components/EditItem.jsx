@@ -17,7 +17,7 @@ const EditItem = (props) =>
     const [category, setCategory] = useState(`${item.category}`);
     const [description, setDescription] = useState(`${item.description}`);
     const [error, setError] = useState(null);
-    // const [emptyFields, setEmptyFields] = useState([item]);
+    // const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) =>
     {
@@ -48,7 +48,6 @@ const EditItem = (props) =>
             if(response.ok)
             {
                 setError(null)
-                // setEmptyFields([])
                 console.log('Item edited.', json)
                 dispatch({type:'UPDATE_ITEM', payload: json})
             }

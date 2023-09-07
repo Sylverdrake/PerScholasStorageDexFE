@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+#Introduction
+While frustrating at first, I ended up having a lot of fun making this project and watching it come together, despite all of the other things happening in my life at the time. But if this was developed during an actual job, and all these things were just other job responsibilities, I would say that things turn out quite well since everything works as intended and as requested. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Overall I found that there is some satisfaction in watching new things get created and then updated on the fly, it's just great when a plan comes together. On that note, getting the New Item component to work and using it to get the Edit Item component to work as well, was very satisfying.
 
-In the project directory, you can run:
+I would say the biggest challenge of this whole project was learning the MERN stack in general. I struggled a lot with understanding what plug goes into what outlet and making sure things were wired properly, thankfully, Net Ninja's MERN stack tutorials really helped me understand everything.
 
-### `npm start`
+The biggest challenge with this project was getting through it. Full Stack development is hefty work. It's one thing to make one or the other, but making both work in harmony with each other changes the game completely. I found that my biggest takeaways from this project was that you need to be mindful of how data is being passed around, and WHY it is being passed certain ways.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Also Thunder Client (or it's equivalent) made things so much better. Using it to test all back end processes made getting it sorted out vastly easier.
+=========================================================
+#Technologies Used
+    Backend dependencies:
+        "bcrypt": "^5.1.1",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^7.5.0",
+        "validator": "^13.11.0"
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Frontend dependencies:
+        "date-fns": "^2.30.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.15.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+=========================================================
+#Trello Board & Diagrams
+https://trello.com/invite/b/bxelf2Y5/ATTI82799cdf7e1a3f8295bc93c7e3c1472e55ADF05C/mern-project
+https://drive.google.com/drive/u/0/folders/1cd55lKbkj-Uhp_l1m9b4vYaNQDMgunX_ - Wireframes
+=========================================================
+#Unsolved Problems
+EditForm does not refresh dynamically akin to the New Form - probably need to use useEffect hook
+=========================================================
+#The Future
+There was a lot I wanted to do with this project, but only so much I could do given the timespan and other "job responsibilities" if we want to frame it that way. Some things in particular I really wanted to add that was included on the original wireframes were:
 
-### `npm test`
+Adding separate objects for locations and categories so they could be searched for and filtered through.
+Using Regex or another method to add a search bar and proper filter to find certain items
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Having recently viewed and recently updated items shown on lists on the homepage
+Having most viewed items, categories, and locations shown on lists on the homepage
 
-### `npm run build`
+Using a camera on your phone and uploading pictures to an item as part of edit or the new form so you knew exactly what it was
+Exporting all stored data as a .csv to manage it in other ways on Excel or other programs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Multi-user communication via sending stores items or merging inventories if users moved in together
+Admin interface so user data can be corrected if errors arise
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Track supply costs if you stores items like tools, screws, tape, etc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Be able to view recently deleted items and then permanently delete them or let them expire
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Neat keyframe movements akin to that of an actual Rolodex upon which this project was partially inspired by, along with Ellen Sandbeck's "Green Housekeeping".
