@@ -1,20 +1,23 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { useItemContext } from '../hooks/useItemsContext';
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const EditItem = (props) =>
 {
     let item = props.item;
+    let {id} = useParams();
 
     const { dispatch } = useItemContext();
     const {user} = useAuthContext();
     
-    const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
-    const [category, setCategory] = useState('');
-    const [description, setDescription] = useState('');
+    const [name, setName] = useState(`${item.name}`);
+    const [location, setLocation] = useState(`${item.location}`);
+    const [category, setCategory] = useState(`${item.category}`);
+    const [description, setDescription] = useState(`${item.description}`);
     const [error, setError] = useState(null);
-    const [emptyFields, setEmptyFields] = useState([]);
+    // const [emptyFields, setEmptyFields] = useState([item]);
 
     const handleSubmit = async (e) =>
     {
@@ -25,7 +28,7 @@ const EditItem = (props) =>
                 return
             }
         const item = {name, location, category, description}
-        const response = await fetch(`/api/items/${item._id}`, 
+        const response = await fetch(`/api/items/${id}`, 
         {
             method: 'PATCH',
             body: JSON.stringify(item),
@@ -39,12 +42,13 @@ const EditItem = (props) =>
             if(!response.ok)
             {
                 setError(json.error)
-                setEmptyFields(json.emptyFields)
+                console.log("Error")
+                // setEmptyFields(json.emptyFields)
             }
             if(response.ok)
             {
                 setError(null)
-                setEmptyFields([])
+                // setEmptyFields([])
                 console.log('Item edited.', json)
                 dispatch({type:'UPDATE_ITEM', payload: json})
             }
@@ -57,7 +61,7 @@ const EditItem = (props) =>
             type="text" 
             onChange={(e) => setName(e.target.value)} 
             defaultValue={item.name}
-            className={emptyFields.includes('name') ? 'error' : ''}
+            // className={emptyFields.includes(`${item.name}`) ? 'error' : ''}
         />
 
         <label>Item Location:</label>
@@ -65,7 +69,7 @@ const EditItem = (props) =>
             type="text" 
             onChange={(e) => setLocation(e.target.value)} 
             defaultValue={item.location}
-            className={emptyFields.includes('location') ? 'error' : ''}
+            // className={emptyFields.includes(`${item.location}`) ? 'error' : ''}
         />
 
         <label>Item Category:</label>
@@ -73,7 +77,7 @@ const EditItem = (props) =>
             type="text" 
             onChange={(e) => setCategory(e.target.value)} 
             defaultValue={item.category}
-            className={emptyFields.includes('category') ? 'error' : ''}
+            // className={emptyFields.includes(`${item.category}`) ? 'error' : ''}
         />
 
         <label>Item Description:</label>
@@ -81,7 +85,7 @@ const EditItem = (props) =>
             type="text" 
             onChange={(e) => setDescription(e.target.value)} 
             defaultValue={item.description}
-            className={emptyFields.includes('description') ? 'error' : ''}
+            // className={emptyFields.includes(`${item.description}`) ? 'error' : ''}
         />
     <button>Edit Item</button>
     {error && <div className="error">{error}</div>}
